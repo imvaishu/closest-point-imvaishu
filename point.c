@@ -1,13 +1,14 @@
 #include "point.h"
 #include <math.h>
 
-
 DISTANCE get_short_distance(Point a,Point b)
 {
-  return sqrt(pow(b.x - a.x , 2) + pow(b.y - a.y,2));
+  int x = pow(b.x - a.x , 2);
+  int y = pow(b.y - a.y , 2);
+  return sqrt(x + y);
 }
 
-void get_closest_food(Point food_points[], int points_length,Point current_location, Point *closest_food_location)
+void get_closest_food(Point food_points[],int points_length,Point current_location,Point *closest_food_location)
 {
     DISTANCE short_distance = get_short_distance(food_points[0],current_location);
     *closest_food_location = food_points[0];
